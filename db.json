@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "name": "Ravi Mali",
+      "email": "ravi@mit.com",
+      "number": 123456789,
+      "pass": "abcd123",
+      "id": 2
+    },
+    {
+      "name": "Avi Malviya",
+      "email": "avimali@gmail.com",
+      "number": 1234567890,
+      "pass": "qwerty890",
+      "id": 3
+    }
+  ]
+}
