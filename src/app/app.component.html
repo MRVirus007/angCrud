@@ -10,7 +10,7 @@
           </div>
           <div class="form-group col-md-6">
             <label>Number</label>
-            <input type="password" formControlName="number" class="form-control" placeholder="Password">
+            <input type="number" formControlName="number" class="form-control" placeholder="Password">
           </div>
         </div>
         <div class="form-row">
@@ -52,13 +52,13 @@
             <th>Name</th>
             <th>Email</th>
             <th>Number</th>
-            <th>Delete</th>
+            <th *ngIf="isAdmin">Delete</th>
           </tr>
           <tr *ngFor="let emp of listData">
             <td>{{emp.name}}</td>
             <td>{{emp.email}}</td>
             <td>{{emp.number}}</td>
-            <td><button (click)="deleteUser(emp.id)">Delete</button></td>
+            <td *ngIf="isAdmin"><button (click)="deleteUser(emp.id)">Delete</button></td>
           </tr>
         </table>
       </div>

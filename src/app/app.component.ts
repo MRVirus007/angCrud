@@ -15,6 +15,7 @@ export class AppComponent {
   showList = true;
   listData;
   checkUser;
+  isAdmin = false;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
@@ -55,10 +56,16 @@ export class AppComponent {
     this.http.get(this.url).subscribe(udata => {
       for (let i = 0; i < Object.keys(udata).length; i++) {
         this.checkUser = udata[i].email;
-        if (this.email.value == udata[i].email) {
-          console.log("correct")
+        if (this.email.value == udata[i].email && this.pass.value == udata[i].pass) {
+          console.log("correct Inputs");
+          if (udata[i].id == 2) {
+            this.isAdmin = true;
+          }
+          else {
+            this.isAdmin = false;
+          }
         }
-        console.log(this.checkUser);
+        //console.log(this.checkUser);
       }
     });
 

@@ -30,6 +30,13 @@
       "number": 1234567890,
       "pass": "qwerty890",
       "id": 3
+    },
+    {
+      "name": "Mohammed Rokerya",
+      "email": "mohammadrokerya@gmail.com",
+      "number": 9876543210,
+      "pass": "maihudon",
+      "id": 4
     }
   ]
 }
