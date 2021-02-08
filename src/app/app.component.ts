@@ -14,6 +14,7 @@ export class AppComponent {
   validFields = false;
   showList = true;
   listData;
+  checkUser;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
@@ -48,6 +49,17 @@ export class AppComponent {
     })
   }
 
+  loginSub() {
+    console.log("Logged In");
+    this.http.get(this.url).subscribe(udata => {
+      for (let i = 0; i < Object.keys(udata).length; i++) {
+        this.checkUser = udata[i].name;
+        console.log(this.checkUser);
+      }
+    });
+
+  }
+
   deleteUser(id) {
     console.log("ID: " + id);
     this.http.delete(this.url + id).subscribe(del => {
@@ -69,7 +81,7 @@ export class AppComponent {
   }
 
   sendToApi() {
-    this.http.post("http://localhost:3000/users", this.profileForm.value).subscribe(data => {
+    this.http.post(this.url, this.profileForm.value).subscribe(data => {
       console.log("Data Inserted Successfully" + data);
 
     }, error => {
