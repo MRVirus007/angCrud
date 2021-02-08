@@ -50,10 +50,14 @@ export class AppComponent {
   }
 
   loginSub() {
-    console.log("Logged In");
+    console.log("Email is: " + this.email.value);
+    console.log("Password is: " + this.pass.value);
     this.http.get(this.url).subscribe(udata => {
       for (let i = 0; i < Object.keys(udata).length; i++) {
-        this.checkUser = udata[i].name;
+        this.checkUser = udata[i].email;
+        if (this.email.value == udata[i].email) {
+          console.log("correct")
+        }
         console.log(this.checkUser);
       }
     });
@@ -70,9 +74,12 @@ export class AppComponent {
   onSubmit() {
     console.log("I am Clicked")
     if (this.profileForm.valid) {
+      if (this.name.value == "" && this.email.value == "" && this.number.value == "" && this.pass.value == "") {
+        console.log("Empty");
+      }
       console.log("All are valid");
       this.validFields = false;
-      this.sendToApi();
+      //this.sendToApi();
     } else {
       console.log("All are not valid");
       this.validFields = true;
