@@ -9,7 +9,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class AppComponent {
   title = 'useradmin';
   url = "http://localhost:3000/users/"
-  login;
+  login = true;
   register = true;
   validFields = false;
   showList = true;
@@ -28,6 +28,11 @@ export class AppComponent {
   email = new FormControl('');
   number = new FormControl('');
   pass = new FormControl('');
+
+  loginForm = new FormGroup({
+    email: this.email,
+    pass: this.pass
+  });
 
   ngOnInit() {
     this.profileForm = this.formBuilder.group({
